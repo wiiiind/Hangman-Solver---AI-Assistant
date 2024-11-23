@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Guesser - AI Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+
+        
+        <div class="mode-header">
+            <h2>🤖 Hangman Solver - AI Assistant</h2>
+            <div class="language-switch">
+                <button onclick="switchLanguage('en')" class="lang-btn" id="en-btn">EN</button>
+                <button onclick="switchLanguage('zh')" class="lang-btn" id="zh-btn">中</button>
+            </div>
+        </div>
+        <div id="word-input-section">
+            <div class="ai-hint">🔮 AI Assistant ready, waiting for input...</div>
+            <div class="input-controls">
+                <input type="number" class="control-item" id="word-length" min="1" max="15" placeholder="Word Length">
+                <button class="control-item start-btn" onclick="startAssistantMode()">Start AI Analysis</button>
+            </div>
+        </div>
+        <div id="computer-guess-section" class="hidden">
+            <div class="analysis-panel">
+                <div class="panel-header">
+                    <span class="panel-title">🎮 AI Real-time Analysis</span>
+                    <div class="status-indicator">System Running</div>
+                </div>
+                <div id="player-word-display" class="word-display-interactive"></div>
+                <div class="status-section">
+                    <div class="status-left">
+                        <div id="computer-guesses" class="analysis-stats"></div>
+                        <div id="ai-thinking-status" class="thinking-status"></div>
+                    </div>
+                    <div class="mini-hangman">
+                        <canvas id="hangman-canvas" width="160" height="160"></canvas>
+                    </div>
+                </div>
+                    <div class="ai-thinking">
+                        <div class="prediction-main">AI Predicted Letter: <span id="current-guess" class="predicted-letter"></span></div>
+                        <div class="prediction-recommendations" id="letter-recommendations"></div>
+                    </div>
+                    <div class="position-input-group">
+                        <input type="text" id="position-input" placeholder="Enter positions (e.g., 1,3)">
+                        <button onclick="submitGuessResult(true)" class="confirm-btn">✓ Confirm</button>
+                        <button onclick="submitGuessResult(false)" class="reject-btn">✗ Not Exist</button>
+                        <button onclick="undoLastGuess()" class="undo-btn">↺ Undo</button>
+                    </div>
+                </div>
+            
+            <div class="possible-words-section">
+                <div class="section-header">
+                    <h3>🎯 Smart Matching Results</h3>
+                    <div class="processing-indicator">Real-time Processing...</div>
+                </div>
+                <div id="possible-words-content" class="words-grid"></div>
+            </div>
+        </div>
+        <div id="toast-container" class="toast-container"></div>
+    </div>
+    <script src="assistant.js"></script>
+</body>
+</html> 
